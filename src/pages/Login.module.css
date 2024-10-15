@@ -1,0 +1,21 @@
+ /* Login.module.css */
+.loginContainer {
+    max-width: 400px; /* Limit the width for better visual appeal */
+    margin: auto; /* Center the container */
+    padding: 20px; /* Padding around the form */
+    background-color: #f8f9fa; /* Light background color */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Box shadow for depth */
+    position: absolute; /* Position it absolutely to center it */
+    top: 50%; /* Move down to 50% from the top */
+    left: 50%; /* Move right to 50% from the left */
+    transform: translate(-50%, -50%); /* Center it using transform */
+}
+
+.loginForm {
+    margin-bottom: 20px; /* Bottom margin for the form */
+}
+
+.btnPrimary {
+    padding: 10px; /* Add padding to the primary button */
+}

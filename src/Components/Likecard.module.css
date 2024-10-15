@@ -1,0 +1,79 @@
+ /* Likecard.module.css */
+
+/* Style for the card container */
+.card {
+    width: 16rem; /* Reduced width for smaller cards */
+    margin: 0.5rem; /* Adjusted space around each card */
+    display: flex; /* Use flex for consistent layout */
+    flex-direction: column; /* Stack elements vertically */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition effects */
+}
+
+/* Scale effect and shadow on hover */
+.card:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Darker shadow on hover */
+}
+
+/* Style for the image inside the card */
+.fixedHeightImage {
+    height: 160px; /* Reduced height for images */
+    width: 100%; /* Ensure image takes full width */
+    object-fit: cover; /* Maintain aspect ratio */
+    border-top-left-radius: 8px; /* Match card border-radius */
+    border-top-right-radius: 8px;
+}
+
+/* Style for the card body */
+.cardBody {
+    padding: 1rem; /* Reduced padding for smaller cards */
+    text-align: center; /* Center-align text */
+    background-color: #f8f9fa; /* Light background for contrast */
+    border-bottom-left-radius: 8px; /* Match border-radius */
+    border-bottom-right-radius: 8px;
+    flex-grow: 1; /* Allows the card body to take available space */
+    display: flex; /* Use flex to align button at the bottom */
+    flex-direction: column; /* Stack elements vertically */
+    justify-content: space-between; /* Space elements evenly */
+}
+
+/* Style for the card title */
+.cardTitle {
+    font-size: 1.1rem; /* Slightly smaller font size */
+    font-weight: bold; /* Bold text */
+    margin-bottom: 0.5rem; /* Space below title */
+    color: #343a40; /* Dark color for readability */
+}
+
+/* Style for the card text (Price and Added by) */
+.cardText {
+    font-size: 0.9rem; /* Smaller font size */
+    margin-bottom: 0.5rem; /* Space below text */
+    color: #6c757d; /* Muted color for secondary text */
+}
+
+/* Style for the button */
+.btn {
+    margin-top: auto; /* Push button to the bottom */
+    padding: 0.4rem 0.8rem; /* Reduced padding */
+    background-color: #007bff; /* Primary color */
+    border: none; /* No border */
+    color: white; /* Text color */
+    border-radius: 4px; /* Rounded button corners */
+    cursor: pointer; /* Pointer on hover */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Transition effects */
+    font-size: 0.9rem; /* Smaller font size for button */
+    width: 60%; /* Make button full width of the card */
+}
+
+.btn:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    transform: scale(1.05); /* Scale effect on hover */
+}
+
+.foot {
+    display: flex;
+    justify-content: space-between; /* Space between elements in the footer */
+}

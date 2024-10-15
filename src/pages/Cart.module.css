@@ -1,0 +1,71 @@
+ /* Cart.module.css */
+
+.cartContainer {
+    padding: 20px;
+    background-color: #f9f9f9;
+    min-height: 100vh;
+}
+
+h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.emptyCart {
+    text-align: center;
+    font-size: 1.5rem;
+    color: #777;
+    margin-top: 50px;
+}
+
+.bookGrid {
+    display: grid;
+    grid-template-columns: 1fr; /* Single column layout for each card */
+    gap: 1px; /* Space between cards */
+}
+
+.bookGrid > div {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 8px;
+    background-color: white;
+    transition: transform 0.2s; /* Smooth hover effect */
+}
+
+
+
+.alert {
+    margin-top: 20px; /* Spacing for alert message */
+}
+
+.spinner-border {
+    width: 3rem;
+    height: 3rem;
+    border-width: 0.25em; /* Thinner spinner */
+}
+
+.totalPrice {
+    text-align: right; /* Align text to the right */
+    font-size: 1.8rem; /* Increase font size for emphasis */
+    margin-top: 20px; /* Space above the total price */
+    margin-bottom: 20px; /* Space below the total price */
+    color: #4CAF50; /* Green color for positive emphasis */
+    padding: 15px; /* Padding for spacing */
+    background-color: #e8f0fe; /* Light background for contrast */
+    border: 1px solid #4CAF50; /* Green border for distinction */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); /* Deeper shadow for prominence */
+    font-weight: bold; /* Bold font for emphasis */
+    display: flex; /* Flexbox for alignment */
+    justify-content: space-between; /* Space between label and price */
+    align-items: center; /* Center align vertically */
+}
+
+/* Optional: Add a smooth transition effect on hover */
+.totalPrice:hover {
+    background-color: #d7e9fe; /* Slightly darker background on hover */
+    transform: scale(1.02); /* Slight scale effect on hover */
+    transition: background-color 0.3s, transform 0.2s; /* Smooth transition */
+}

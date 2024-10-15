@@ -1,0 +1,62 @@
+ /* Log.module.css */
+
+.loginContainer {
+    max-width: 400px; /* Set a max width for the form */
+    margin: 50px auto; /* Center the form vertically and horizontally */
+    padding: 20px; /* Add padding */
+    border: 1px solid #ddd; /* Optional border */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    background-color: #fff; /* White background */
+}
+
+.loginForm {
+    margin-bottom: 20px; /* Space below the form */
+}
+
+h2 {
+    margin-bottom: 20px; /* Space below the title */
+    font-family: 'Ubuntu', sans-serif; /* Use Ubuntu font */
+    text-align: center; /* Center the title */
+}
+
+.btnPrimary {
+    width: 100%; /* Make buttons full-width */
+}
+
+.btnSecondary {
+    width: 100%; /* Make Google button full-width */
+    margin-top: 10px; /* Space above the Google button */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .loginContainer {
+        width: 90%; /* Allow the container to take up more width on smaller screens */
+        margin: 20px auto; /* Reduce vertical margin for smaller screens */
+        padding: 15px; /* Adjust padding for better fit */
+    }
+
+    h2 {
+        font-size: 1.5rem; /* Slightly smaller font size for the title */
+    }
+
+    .btnPrimary, .btnSecondary {
+        padding: 12px; /* Adjust button padding for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .loginContainer {
+        padding: 10px; /* Further reduce padding on very small screens */
+    }
+
+    h2 {
+        font-size: 1.3rem; /* Further reduce font size for very small screens */
+    }
+
+    .btnPrimary, .btnSecondary {
+        padding: 10px; /* Adjust button padding for very small screens */
+        font-size: 0.9rem; /* Slightly smaller button text */
+    }
+}

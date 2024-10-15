@@ -1,0 +1,71 @@
+ /* Orders.module.css */
+
+.ordersContainer {
+    padding: 30px;
+    background-color: #f4f4f4; /* Soft light background */
+    border-radius: 10px;
+    max-width: 800px;
+    margin: 20px auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+}
+
+.ordersContainer h1 {
+    margin-bottom: 25px;
+    font-size: 2.2rem;
+    color: #344e41; /* Dark olive header color */
+    text-align: center;
+}
+
+.orderList {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;  /* Spacing between order items */
+}
+
+.orderItem {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Small shadow for each item */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.orderItem:hover {
+    transform: translateY(-5px); /* Lift on hover */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Deeper shadow on hover */
+}
+
+.bookName {
+    font-size: 1.5rem;
+    color: #1d3557; /* Strong dark blue for book names */
+    margin-bottom: 10px;
+}
+
+.orderItem p {
+    font-size: 1rem;
+    margin: 6px 0;
+}
+
+.orderItem p strong {
+    color: #457b9d; /* Highlighted labels */
+}
+
+.loading, .noOrders, .errorMessage {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #e63946; /* Error or warning color */
+    margin-top: 20px;
+}
+.rejectButton {
+    background-color: #dc3545; /* Bootstrap danger color */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.rejectButton:hover {
+    background-color: #c82333; /* Darker shade on hover */
+}

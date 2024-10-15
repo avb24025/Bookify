@@ -1,0 +1,107 @@
+ /* Home.module.css */
+
+/* Container for the main content */
+.container {
+    display: flex;
+    flex-direction: column; /* Align items in a column */
+     align-items: center; /* Center items horizontally */
+    padding: 20px; /* Padding for the container */
+    background-color: #f8f9fa; /* Light background color */
+    max-width: 1200px; /* Maximum width of the container */
+    margin: 0 auto; /* Center the container horizontally */
+    min-height: 100vh; /* Full height of the viewport */
+}
+
+.searchContainer {
+     width:100% ;   
+ display: flex; /* Use flex for centering */
+    justify-content: flex-start;
+    position: sticky; /* Make it sticky */
+    top: 60px; /* Adjust this value to match the height of your navbar */
+    z-index: 50; /* Ensure it stays above other content */
+    /* background-color: #2a333c; Same background as the container */
+    padding: 10px 20px; /* Padding for the search bar */
+    padding-top: 28px;
+    margin-left: 0.1rem;
+    margin-bottom: 10px; /* Space between search bar and description */
+    border-radius: 5px; /* Optional: Add rounded corners */
+}
+
+/* Search input styling */
+.searchInput {
+    width: 300px; /* Set a fixed width for the search input */
+    padding: 10px; /* Add padding */
+    border: 1px solid #ddd; /* Border style */
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Shadow effect */
+    font-size: 1rem; /* Font size */
+    transition: border-color 0.3s; /* Transition effect for border color */
+}
+
+/* Change border color on focus */
+.searchInput:focus {
+    border-color: #007bff; /* Blue border on focus */
+    outline: none; /* Remove outline */
+}
+
+/* Book list styling */
+.bookList {
+    display: flex;
+    flex-wrap: wrap; /* Wrap the cards if they exceed the width */
+    gap: 20px; /* Space between each book card */
+    width: 100%; /* Allow the book list to take full width of the container */
+    justify-content: center; /* Center the cards in the available space */
+    margin-top: 20px; /* Space between search bar and book list */
+}
+
+/* Fallback UI if there are no books */
+.noBooks {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #333;
+    margin-top: 20px;
+}
+
+/* Description text styling */
+.descriptionText {
+    text-align: center; /* Center align the text */
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 1.2rem; /* Font size */
+    color: #333; /* Text color */
+    /* margin: 10px 0; Margin above and below */
+    margin-left: 50px;
+    margin-right: 50px;
+    padding: 0 10px; /* Horizontal padding for small screens */
+    line-height: 1.5; /* Spacing between lines */
+}
+
+/* Additional styling for responsiveness */
+/* Home.module.css */
+
+/* Existing styles ... */
+
+/* Additional styling for responsiveness */
+@media (max-width: 768px) {
+    /* Hide the description text */
+    .descriptionText {
+        display: none; /* Hide the description text on smaller screens */
+    }
+
+    /* Update book list for mobile */
+    .bookList {
+        flex-direction: row; /* Ensure books are displayed in a row */
+        justify-content: space-between; /* Space between cards */
+    }
+
+    /* Assuming Bookcard has a class name for width adjustment */
+    .bookList > .bookcard {
+        flex: 0 0 calc(50% - 10px); /* 50% width minus some margin */
+        max-width: calc(50% - 10px); /* Maximum width for two cards */
+        margin-bottom: 20px; /* Margin between rows */
+    }
+    
+    .searchInput {
+        width: 80%; /* Adjust width for smaller screens */
+    }
+}
+

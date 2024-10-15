@@ -1,0 +1,115 @@
+ /* Style for the card container */
+.card {
+    width: 16rem; /* Fixed width for consistency */
+    margin: 0.5rem; /* Adjusted space around each card */
+    display: flex; /* Use flex for consistent layout */
+    flex-direction: column; /* Stack elements vertically */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition effects */
+}
+
+/* Scale effect and shadow on hover */
+.card:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Darker shadow on hover */
+    border: 1px solid #007bff; /* Highlight border on hover */
+}
+
+/* Style for the image inside the card */
+.fixedHeightImage {
+    height: 160px; /* Reduced height for images */
+    width: 100%; /* Ensure image takes full width */
+    object-fit: cover; /* Maintain aspect ratio */
+    border-top-left-radius: 8px; /* Match card border-radius */
+    border-top-right-radius: 8px;
+    transition: opacity 0.3s ease; /* Fade effect on image load */
+}
+
+/* Style for the card body */
+.cardBody {
+    padding: 1rem; /* Reduced padding for smaller cards */
+    text-align: center; /* Center-align text */
+    background-color: #f8f9fa; /* Light background for contrast */
+    border-bottom-left-radius: 8px; /* Match border-radius */
+    border-bottom-right-radius: 8px;
+    flex-grow: 1; /* Allows the card body to take available space */
+    display: flex; /* Use flex to align button at the bottom */
+    flex-direction: column; /* Stack elements vertically */
+    justify-content: space-between; /* Space elements evenly */
+    /* align-items: center; */
+}
+
+/* Style for the card title */
+.cardTitle {
+    font-size: 1.2rem; /* Slightly larger font size for title */
+    font-weight: bold; /* Bold text */
+    margin-bottom: 0.5rem; /* Space below title */
+    color: #343a40; /* Dark color for readability */
+    text-transform: uppercase; /* Uppercase text for emphasis */
+}
+.cart{
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Style for the card text (Price and Added by) */
+.cardText {
+    font-size: 0.9rem; /* Smaller font size */
+    margin-bottom: 0.1rem; /* Space below text */
+    color: #6c757d; /* Muted color for secondary text */
+}
+
+/* Style for the button */
+.btn {
+    margin-top: auto; /* Push button to the bottom */
+    padding: 0.4rem 0.8rem; /* Reduced padding */
+    background-color: #588157; /* Primary color */
+    border: none; /* No border */
+    color: white; /* Text color */
+    border-radius: 4px; /* Rounded button corners */
+    cursor: pointer; /* Pointer on hover */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Transition effects */
+    font-size: 0.9rem; /* Smaller font size for button */
+    width: 60%; /* Make button full width of the card */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Button shadow */
+}
+
+/* Button hover effect */
+.btn:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    transform: scale(1.05); /* Scale effect on hover */
+}
+
+/* Foot section for the bottom elements */
+.foot {
+    display: flex;
+    justify-content: space-between; /* Space between elements in the footer */
+    align-items: center; /* Center items vertically */
+}
+
+/* Style for the like button */
+.foot span {
+    cursor: pointer; /* Pointer on hover */
+    transition: transform 0.3s ease; /* Smooth transition for like button */
+}
+
+.foot span:hover {
+    transform: scale(1.1); /* Slightly enlarge like button on hover */
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .card {
+        width: 100%; /* Full width on smaller screens */
+        margin: 0.5rem 0; /* Adjust margins for small screens */
+    }
+    
+    .cardTitle {
+        font-size: 1.1rem; /* Adjust title font size */
+    }
+
+    .btn {
+        width: 80%; /* Wider button on smaller screens */
+    }
+}

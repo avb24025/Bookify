@@ -1,0 +1,96 @@
+ /* Navbar container styles */
+.navbar {
+    background-color: #a3b18a; /* Background color for the navbar */
+    border-bottom: 1px solid #ddd; /* Subtle bottom border */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow effect */
+    z-index: 1000; /* Ensures navbar stays on top of other elements */
+    position: fixed; /* Fixed position to stay at the top */
+    top: 0; /* Aligns the navbar to the top of the viewport */
+    width: 100%; /* Ensures the navbar spans the full width of the screen */
+}
+
+/* Add padding to the body to avoid content hiding behind the navbar */
+body {
+    padding-top: 80px; /* Adjust this value based on the navbar's height */
+}
+
+/* Navbar brand (Bookify) */
+.navbarBrand {
+    text-decoration: none; /* Remove underline */
+    color: #520a0a; /* Brand color */
+    font-size: 2.2rem; /* Slightly larger font for emphasis */
+    font-weight: bold; /* Bold for emphasis */
+    margin-right: 30px; /* Add spacing to the right */
+}
+
+/* Navbar links (Home, List Book, Favorites, Orders) */
+.navLink {
+    text-decoration: none; /* Remove underline */
+    color: #513a3a; /* Link color */
+    padding: 0.5rem 1rem; /* Add padding for spacing */
+    font-size: 1rem; /* Font size */
+    border-radius: 5px; /* Rounded corners for buttons */
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover effects */
+}
+
+/* Hover effects for nav links */
+.navLink:hover {
+    color: #fff; /* Change text color on hover */
+    background-color: #007bff; /* Change background color on hover */
+}
+
+/* Active link style */
+.navLink.active {
+    color: #fff; /* Active state text color */
+    background-color: #007bff; /* Active state background color */
+}
+
+/* Button styling */
+.btnWarning {
+    margin-left: 1rem;
+    background-color: #344e41; /* Warning button color */
+    color: #fff; /* White text */
+    border-radius: 5px; /* Rounded corners */
+    padding: 0.5rem 1rem; /* Padding for button */
+    transition: background-color 0.3s; /* Smooth transition for hover */
+}
+
+.btnWarning:hover {
+    background-color: #3a5a40;
+}
+
+.btnPrimary {
+    background-color: #588157; /* Primary button color */
+    color: #ffffff; /* White text */
+    border-radius: 5px; /* Rounded corners */
+    padding: 0.5rem 1rem; /* Padding for button */
+    transition: background-color 0.3s; /* Smooth transition for hover */
+}
+
+.btnPrimary:hover {
+    background-color: #3c3c3c; /* Darker on hover */
+}
+
+.btnSecondary {
+    background-color: #588157; /* Secondary button color */
+    color: #ffffff; /* White text */
+    border-radius: 5px; /* Rounded corners */
+    padding: 0.5rem 1rem; /* Padding for button */
+    transition: background-color 0.3s; /* Smooth transition for hover */
+}
+
+.btnSecondary:hover {
+    background-color: #4a4a4a; /* Darker on hover */
+}
+
+/* Cart icon styles */
+.cartIcon {
+    color: #000000; /* Change icon color */
+    transition: transform 0.2s, color 0.3s; /* Smooth transition for hover effects */
+    cursor: pointer; /* Change cursor to pointer on hover */
+}
+
+.cartIcon:hover {
+    transform: scale(1.01); /* Slightly enlarge the icon on hover */
+    color: #242422; /* Change color to highlight */
+}

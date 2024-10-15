@@ -1,0 +1,137 @@
+.card {
+    display: flex; /* Flexbox for horizontal layout */
+    flex-direction: row; /* Ensure elements are in a row */
+    align-items: stretch; /* Ensure all cards have the same height */
+    padding: 15px; /* Padding for internal spacing */
+    background-color: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Slightly deeper shadow */
+    border-radius: 10px; /* More rounded corners */
+    margin: 10px 0; /* Adjusted margin for spacing */
+    width: 95vw; /* Increase to 95% of the viewport width */
+    max-width: 1000px; /* Set max-width to 1000px for larger screens */
+    position: relative; /* Ensure proper stacking context */
+    left: 50%; /* Center the card relative to the viewport */
+    transform: translateX(-50%); /* Offset the card to center it */
+    transition: transform 0.3s, box-shadow 0.3s; /* Smooth hover transition */
+    overflow: hidden; /* Prevent content overflow */
+    height: 200px; /* Decreased fixed height for all cards */
+}
+
+.card:hover {
+    transform: translateX(-50%) scale(1.02); /* Slight scaling effect on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Deeper shadow on hover */
+}
+
+.fixedHeightImage {
+    width: 120px; /* Image width for better fit */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 10px; /* Match the card's border radius */
+    margin-right: 15px; /* Space between image and content */
+    transition: transform 0.2s; /* Smooth transition for image hover */
+}
+
+.fixedHeightImage:hover {
+    transform: scale(1.05); /* Slight zoom on image hover */
+}
+
+.cardBody {
+    flex-grow: 1; /* Allow the content to take up remaining space */
+    display: flex;
+    flex-direction: column; /* Stack content vertically */
+    justify-content: space-between; /* Space between title and buttons */
+    padding-left: 10px; /* Padding for alignment */
+}
+
+.cardTitle {
+    font-size: 1.4rem; /* Title size for better fit */
+    margin-bottom: 5px;
+    color: #333;
+    font-weight: bold; /* Bold title */
+}
+
+.cardText {
+    margin-bottom: 5px;
+    color: #555;
+    line-height: 1.4; /* Better line spacing */
+    font-size: 0.9rem; /* Font size for consistency */
+}
+
+.foot {
+    display: flex;
+    justify-content: space-between; /* Space out the buttons */
+    align-items: center;
+    margin-top: auto; /* Push buttons to the bottom of the card */
+    padding-top: 5px; /* Padding above buttons */
+}
+
+.btn {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px; /* Padding for button size */
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 0.9rem; /* Font size for consistency */
+    transition: background-color 0.3s, transform 0.2s; /* Smooth transitions */
+    cursor: pointer; /* Pointer cursor for buttons */
+}
+
+.btn:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    transform: translateY(-2px); /* Slight lift effect on hover */
+}
+
+.cart {
+    display: flex;
+    gap: 5px; /* Space between buttons */
+}
+
+.removeButton {
+    background-color: #dc3545; /* Bootstrap danger color */
+    color: white;
+    padding: 10px; /* Padding for button size */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s, transform 0.2s; /* Smooth transitions */
+}
+
+.removeButton:hover {
+    background-color: #c82333; /* Darker red on hover */
+    transform: translateY(-2px); /* Slight lift effect on hover */
+}
+
+.buyButton {
+    background-color: #28a745; /* Bootstrap success color */
+    color: white;
+    padding: 10px; /* Padding for button size */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s, transform 0.2s; /* Smooth transitions */
+}
+
+.buyButton:hover {
+    background-color: #218838; /* Darker green on hover */
+    transform: translateY(-2px); /* Slight lift effect on hover */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .card {
+        flex-direction: column; /* Stack elements vertically on small screens */
+        align-items: flex-start; /* Align items to the left */
+        width: 90vw; /* Adjust width for smaller screens */
+        height: auto; /* Allow for auto height on smaller screens */
+    }
+    
+    .fixedHeightImage {
+        width: 100%; /* Image full width on small screens */
+        margin-right: 0; /* Remove margin for better alignment */
+    }
+    
+    .cardBody {
+        padding-left: 0; /* Reset padding for better alignment */
+        padding-top: 5px; /* Reduced top padding */
+    }
+}
