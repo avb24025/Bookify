@@ -6,7 +6,7 @@ import { FcLikePlaceholder, FcLike } from "react-icons/fc"; // Import the like i
 import { TiShoppingCart } from "react-icons/ti";
 import { MdOutlineShoppingCart } from "react-icons/md";
 
-const Likecard = ({ id, name, price,addedby, userEmail, imageURL, onLikeToggle }) => {
+const Likecard = ({ id, name, price, addedby, userEmail, imageURL, onLikeToggle }) => {
     const firebase = useFirebase();
     const [url, setUrl] = useState(null);
     const [isLiked, setIsLiked] = useState(false); // State for like status
@@ -51,7 +51,7 @@ const Likecard = ({ id, name, price,addedby, userEmail, imageURL, onLikeToggle }
                     onLikeToggle(id); // Call the callback to update the parent
                 } else {
                     // Add to favorites
-                    await firebase.addFavoriteBook({ id, name, price, imageURL,addedby});
+                    await firebase.addFavoriteBook({ id, name, price, imageURL, addedby });
                     onLikeToggle(id); // Call the callback to update the parent
                 }
                 setIsLiked(!isLiked); // Toggle like state
@@ -64,9 +64,6 @@ const Likecard = ({ id, name, price,addedby, userEmail, imageURL, onLikeToggle }
         }
     };
 
-    console.log({ id, name, price, addedby, userEmail, imageURL });
-
-
     return (
         <div className={styles.card}>
             {url ? (
@@ -76,22 +73,22 @@ const Likecard = ({ id, name, price,addedby, userEmail, imageURL, onLikeToggle }
             )}
             <div className={styles.cardBody}>
                 <h5 className={styles.cardTitle}>{name}</h5>
-                <p className={styles.cardText}>Price: ${price}</p>
-                <p className={styles.cardText}>Added by: {addedby}</p>
+                <div className={styles.infoContainer}>
+                    <p className={styles.cardText}>Price: ${price}</p>
+                    <p className={styles.cardText}>Owner: {addedby}</p>
+                </div>
                 <div className={styles.foot}>
                     {/* Link to the book details */}
                     <Link to={`/details/${id}`} className={`btn btn-primary ${styles.btn}`}>
                         View Details
                     </Link>
                     <div className={styles.cart}>
-                     {/* <TiShoppingCart size={30}/> */}
-                     <MdOutlineShoppingCart size={30}/>
-
-                 {/* Like button, clickable only when the user is logged in */}
-                <span onClick={toggleLike} style={{ cursor: isLogin ? 'pointer' : 'not-allowed' }}>
-                {isLiked ? <FcLike size={30} /> : <FcLikePlaceholder size={30} />}
-               </span>
-                   </div>
+                        <MdOutlineShoppingCart size={30} />
+                        {/* Like button, clickable only when the user is logged in */}
+                        <span onClick={toggleLike} style={{ cursor: isLogin ? 'pointer' : 'not-allowed' }}>
+                            {isLiked ? <FcLike size={30} /> : <FcLikePlaceholder size={30} />}
+                        </span>
+                    </div>
                 </div>
             </div>
         </div>

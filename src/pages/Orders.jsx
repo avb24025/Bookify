@@ -68,7 +68,7 @@ const Order = () => {
 
     return (
         <div className={styles.ordersContainer}>
-            <h1>Your Orders</h1>
+            <h2 className={styles.head}>Your Orders</h2>
             {cancelError && <div className="alert alert-danger">{cancelError}</div>}
             {cancelSuccess && <div className="alert alert-success">{cancelSuccess}</div>}
             {orders.length > 0 ? (

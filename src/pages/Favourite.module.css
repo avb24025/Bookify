@@ -3,6 +3,11 @@
 .favoritesContainer {
     padding: 20px; /* Padding around the container */
 }
+.head{
+    font-weight: bold;
+    font-family:Arial, Helvetica, sans-serif;
+
+}
 
 .cardContainer {
     display: flex;

@@ -40,7 +40,7 @@ const List = () => {
 
     return (
         <div className={styles.container}>
-            <h2>Add a New Book</h2>
+            <h2 className={styles.head}>Add a New Book</h2>
             <form onSubmit={handleOnSubmit}>
                 <div className="mb-3">
                     <label htmlFor="bookName" className={`form-label ${styles.formLabel}`}>Book Name</label>

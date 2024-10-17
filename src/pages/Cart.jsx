@@ -23,26 +23,18 @@ const Cart = () => {
         try {
             const booksInCart = await firebase.getCartBooks(); // Fetch the books in the cart
             setCartBooks(booksInCart); // Set the cart books in state
-            
-            // Fetch user orders to initialize order status
-            const orders = await firebase.getUserOrders();
+
+            // Fetch the order status for each book from Firebase
+            const fetchedOrderStatus = await firebase.getOrderStatusForBooks(booksInCart.map(book => book.bookId));
+
+            // Initialize order status for each book
             const initialOrderStatus = {};
-
-            // Initialize order status based on fetched orders
-            orders.forEach(order => {
-                initialOrderStatus[order.bookId] = true; // Mark as ordered
-            });
-
             booksInCart.forEach(book => {
-                if (!initialOrderStatus[book.bookId]) {
-                    initialOrderStatus[book.bookId] = false; // Mark as not ordered
-                }
+                initialOrderStatus[book.bookId] = fetchedOrderStatus[book.bookId] || false; // Set order status for each book
             });
 
             setOrderStatus(initialOrderStatus); // Set the initial order statuses
 
-            console.log("Cart Books:", booksInCart);
-            console.log("Initial Order Status:", initialOrderStatus);
         } catch (error) {
             setError("Error fetching cart books: " + error.message);
         } finally {
@@ -81,7 +73,6 @@ const Cart = () => {
             ...prevStatus,
             [id]: status, // Update the order status for the specific book
         }));
-        console.log("Updated Order Status:", { id, status });
     };
 
     // Calculate the total price of the books in the cart
@@ -91,7 +82,7 @@ const Cart = () => {
 
     return (
         <div className={styles.cartContainer}>
-            <h2>Your Cart</h2>
+            <h2 className={styles.head}> Your Cart</h2>
             {loading ? (
                 <div className="d-flex justify-content-center align-items-center" style={{ height: '100vh' }}>
                     <div className="spinner-border" role="status">
@@ -115,7 +106,6 @@ const Cart = () => {
                                     name={book.name}
                                     price={book.price}
                                     addedby={book.addedby}
-                                    userEmail={book.userEmail}
                                     imageURL={book.imageURL}
                                     onCartUpdate={handleCartToggle} // Pass the removal handler
                                     isOrdered={orderStatus[book.bookId]} // Pass the order status
@@ -123,9 +113,9 @@ const Cart = () => {
                                 />
                             ))}
                         </div>
-                        <h3 className={styles.totalPrice}>
+                        {/* <h3 className={styles.totalPrice}>
                             Total Price: <span>${calculateTotalPrice()}</span>
-                        </h3>
+                        </h3> */}
                     </div>
                 )
             )}

@@ -1,6 +1,4 @@
- /* Likecard.module.css */
-
-/* Style for the card container */
+ /* Style for the card container */
 .card {
     width: 16rem; /* Reduced width for smaller cards */
     margin: 0.5rem; /* Adjusted space around each card */
@@ -34,9 +32,14 @@
     border-bottom-left-radius: 8px; /* Match border-radius */
     border-bottom-right-radius: 8px;
     flex-grow: 1; /* Allows the card body to take available space */
-    display: flex; /* Use flex to align button at the bottom */
+    display: flex; /* Use flex to align elements */
     flex-direction: column; /* Stack elements vertically */
     justify-content: space-between; /* Space elements evenly */
+}
+
+/* Container for price and owner info */
+.infoContainer {
+    text-align: left; /* Align text to the left */
 }
 
 /* Style for the card title */
@@ -58,7 +61,7 @@
 .btn {
     margin-top: auto; /* Push button to the bottom */
     padding: 0.4rem 0.8rem; /* Reduced padding */
-    background-color: #007bff; /* Primary color */
+    background-color: #000000; /* Primary color */
     border: none; /* No border */
     color: white; /* Text color */
     border-radius: 4px; /* Rounded button corners */

@@ -422,6 +422,107 @@ const rejectOrder = async (orderId) => {
         throw error;
     }
 };
+
+// Fetch order status for a list of books
+const getOrderStatusForBooks = async (bookIds) => {
+    try {
+        const ordersCollectionRef = collection(firestore, "orders");
+        const querySnapshot = await getDocs(ordersCollectionRef);
+
+        const orderStatus = {};  // To store order status for each book
+
+        querySnapshot.forEach((doc) => {
+            const data = doc.data();
+            if (data.orders) {
+                data.orders.forEach((order) => {
+                    if (bookIds.includes(order.bookId)) {
+                        orderStatus[order.bookId] = true; // If order exists, set it to true (purchased)
+                    }
+                });
+            }
+        });
+
+        // Return order status for each book, defaulting to false if not found
+        return bookIds.reduce((acc, bookId) => {
+            acc[bookId] = orderStatus[bookId] || false;
+            return acc;
+        }, {});
+    } catch (error) {
+        console.error("Error fetching order statuses:", error.message);
+        throw error;
+    }
+};
+
+// Update order status in Firebase (true = purchased, false = not purchased)
+const updateOrderStatus = async (bookId, status) => {
+    try {
+        const ordersCollectionRef = collection(firestore, "orders");
+        const querySnapshot = await getDocs(ordersCollectionRef);
+
+        // Loop through orders and update the status for the specific bookId
+        for (const docSnapshot of querySnapshot.docs) {
+            const data = docSnapshot.data();
+
+            if (data.orders) {
+                const updatedOrders = data.orders.map((order) => {
+                    if (order.bookId === bookId) {
+                        return { ...order, purchased: status }; // Update the status
+                    }
+                    return order;
+                });
+
+                await setDoc(doc(firestore, "orders", docSnapshot.id), { orders: updatedOrders });
+            }
+        }
+
+        console.log("Order status updated successfully!");
+    } catch (error) {
+        console.error("Error updating order status:", error.message);
+        throw error;
+    }
+};
+
+// Send a chat message
+const sendMessage = async (orderId, message) => {
+    if (!user) throw new Error("User must be logged in to send messages.");
+
+    try {
+        const chatRef = collection(firestore, `orders/${orderId}/chat`);
+        await addDoc(chatRef, {
+            senderEmail: user.email,
+            message,
+            timestamp: new Date(), // or use Firestore's server timestamp
+        });
+        console.log("Message sent successfully!");
+    } catch (error) {
+        console.error("Error sending message:", error);
+        throw error;
+    }
+};
+
+// Get chat messages for an order
+const getChatMessages = async (orderId) => {
+    try {
+        const chatRef = collection(firestore, `orders/${orderId}/chat`);
+        const querySnapshot = await getDocs(chatRef);
+        return querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+    } catch (error) {
+        console.error("Error fetching chat messages:", error);
+        throw error;
+    }
+};
+// Subscribe to chat messages in real time
+const subscribeToChatMessages = (orderId, callback) => {
+    const chatRef = collection(firestore, `orders/${orderId}/chat`);
+
+    return onSnapshot(chatRef, (querySnapshot) => {
+        const messages = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+        callback(messages);
+    });
+};
+
+
+
  
     return (
         <FirebaseContext.Provider value={{
@@ -442,6 +543,11 @@ const rejectOrder = async (orderId) => {
             cancelOrder,
             getCartBooks,
             rejectOrder,
+            updateOrderStatus,
+            getOrderStatusForBooks,
+            getChatMessages,
+            sendMessage,
+            subscribeToChatMessages,
             isLogin,
             user
         }}>

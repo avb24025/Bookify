@@ -13,12 +13,12 @@
 .card:hover {
     transform: translateY(-5px); /* Lift effect on hover */
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Darker shadow on hover */
-    border: 1px solid #007bff; /* Highlight border on hover */
+    border: 2px solid #000000; /* Highlight border on hover */
 }
 
 /* Style for the image inside the card */
 .fixedHeightImage {
-    height: 160px; /* Reduced height for images */
+    height: 140px; /* Reduced height for images to make the card shorter */
     width: 100%; /* Ensure image takes full width */
     object-fit: cover; /* Maintain aspect ratio */
     border-top-left-radius: 8px; /* Match card border-radius */
@@ -28,7 +28,7 @@
 
 /* Style for the card body */
 .cardBody {
-    padding: 1rem; /* Reduced padding for smaller cards */
+    padding: 0.8rem; /* Reduced padding for a more compact card */
     text-align: center; /* Center-align text */
     background-color: #f8f9fa; /* Light background for contrast */
     border-bottom-left-radius: 8px; /* Match border-radius */
@@ -44,13 +44,13 @@
 .cardTitle {
     font-size: 1.2rem; /* Slightly larger font size for title */
     font-weight: bold; /* Bold text */
-    margin-bottom: 0.5rem; /* Space below title */
+    margin-bottom: 0.3rem; /* Reduced space below title */
     color: #343a40; /* Dark color for readability */
     text-transform: uppercase; /* Uppercase text for emphasis */
 }
 .cart{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
 }
 
 /* Style for the card text (Price and Added by) */
@@ -64,7 +64,7 @@
 .btn {
     margin-top: auto; /* Push button to the bottom */
     padding: 0.4rem 0.8rem; /* Reduced padding */
-    background-color: #588157; /* Primary color */
+    background-color: #000000; /* Primary color */
     border: none; /* No border */
     color: white; /* Text color */
     border-radius: 4px; /* Rounded button corners */

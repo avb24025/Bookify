@@ -3,7 +3,7 @@
     flex-direction: row; /* Ensure elements are in a row */
     align-items: stretch; /* Ensure all cards have the same height */
     padding: 15px; /* Padding for internal spacing */
-    background-color: white;
+    background-color: #ffffff; /* White background for contrast */
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Slightly deeper shadow */
     border-radius: 10px; /* More rounded corners */
     margin: 10px 0; /* Adjusted margin for spacing */
@@ -14,7 +14,7 @@
     transform: translateX(-50%); /* Offset the card to center it */
     transition: transform 0.3s, box-shadow 0.3s; /* Smooth hover transition */
     overflow: hidden; /* Prevent content overflow */
-    height: 200px; /* Decreased fixed height for all cards */
+    height: auto; /* Allow dynamic height based on content */
 }
 
 .card:hover {
@@ -47,6 +47,7 @@
     margin-bottom: 5px;
     color: #333;
     font-weight: bold; /* Bold title */
+    text-transform: capitalize; /* Capitalize title */
 }
 
 .cardText {
@@ -65,7 +66,7 @@
 }
 
 .btn {
-    background-color: #007bff;
+    background-color: #000000; /* Bootstrap primary color */
     color: white;
     padding: 10px 15px; /* Padding for button size */
     border: none;

@@ -28,7 +28,7 @@ const Favorites = () => {
 
     return (
         <div className={styles.favoritesContainer}>
-            <h2>Your Favorite Books</h2>
+            <h2 className={styles.head}>Your Favorite Books</h2>
             <div className={styles.bookGrid}>
                 {favoriteBooks.map(book => (
                     <Likecard

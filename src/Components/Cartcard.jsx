@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react"; 
-import { Link } from "react-router-dom"; 
-import { useFirebase } from "../Context/Firebase"; 
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { useFirebase } from "../Context/Firebase";
 import styles from "./Cartcard.module.css"; // CSS for Cartcard
 
 const Cartcard = ({ id, name, price, addedby, imageURL, onCartUpdate, isOrdered, updateOrderStatus }) => {
@@ -40,7 +40,8 @@ const Cartcard = ({ id, name, price, addedby, imageURL, onCartUpdate, isOrdered,
         if (isLogin) {
             try {
                 await firebase.createOrder(id, name, price, addedby);
-                updateOrderStatus(id, true); // Update order status to true
+                await firebase.updateOrderStatus(id, true); // Update order status in Firebase
+                updateOrderStatus(id, true); // Update local state
                 alert(`Order for ${name} has been placed successfully!`);
             } catch (error) {
                 console.error("Error placing order:", error.message);
@@ -56,7 +57,8 @@ const Cartcard = ({ id, name, price, addedby, imageURL, onCartUpdate, isOrdered,
             try {
                 const success = await firebase.cancelOrder(id);
                 if (success) {
-                    updateOrderStatus(id, false); // Update order status to false
+                    await firebase.updateOrderStatus(id, false); // Update order status in Firebase
+                    updateOrderStatus(id, false); // Update local state
                     alert(`Order for ${name} has been cancelled successfully!`);
                 }
             } catch (error) {
@@ -77,7 +79,7 @@ const Cartcard = ({ id, name, price, addedby, imageURL, onCartUpdate, isOrdered,
             )}
             <div className={styles.cardBody}>
                 <h5 className={styles.cardTitle}>{name}</h5>
-                <p className={styles.cardText}>Price: ${price}</p>
+                <p className={styles.cardText}>Price: ${price.toFixed(2)}</p>
                 <p className={styles.cardText}>Owner: {addedby}</p>
                 <div className={styles.foot}>
                     <Link to={`/details/${id}`} className={`btn btn-primary ${styles.btn}`}>

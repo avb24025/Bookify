@@ -69,3 +69,8 @@
 .rejectButton:hover {
     background-color: #c82333; /* Darker shade on hover */
 }
+.head{
+    font-weight: bold;
+    font-family:Arial, Helvetica, sans-serif;
+
+}
